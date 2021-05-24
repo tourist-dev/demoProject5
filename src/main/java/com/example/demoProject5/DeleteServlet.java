@@ -1,13 +1,15 @@
 package com.example.demoProject5;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "deleteServlet", value = "/deleteServlet")
-public class DeleteServlet {
+public class DeleteServlet extends HttpServlet {
+    @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
