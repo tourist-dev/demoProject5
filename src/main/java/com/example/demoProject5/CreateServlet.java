@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "createServlet", value = "/createServlet")
 public class CreateServlet extends HttpServlet {
+    @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
@@ -19,5 +20,20 @@ public class CreateServlet extends HttpServlet {
         String name = request.getParameter("name");
         String classroom = request.getParameter("class");
 
+        boolean found = false;
+        for (Student student:
+             StudentDatabase.students) {
+            if (student.id == id) {
+                found = true;
+                break;
+            }
+        }
+        if (found)
+            out.print("<h1> Already present in the Database<h1>");
+        else {
+            StudentDatabase.students.add(new Student(id, name, classroom));
+            out.print("<h1> Successfully added <h1>");
+        }
+        out.print("</body></html>");
     }
 }
