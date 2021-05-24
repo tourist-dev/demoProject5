@@ -1,5 +1,7 @@
 package com.example.demoProject5;
 
+import java.util.Vector;
+
 public class Student {
     int id;
     String name;
@@ -10,4 +12,8 @@ public class Student {
         this.name = name;
         this.classroom = classroom;
     }
+}
+
+class StudentDatabase {
+    static Vector<Student> students = new Vector<>();
 }
